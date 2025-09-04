@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zeppelin Home®</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
         body {
@@ -80,6 +81,7 @@
                                 <a href="docs/market-analysis.md" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dropdown-item">Market Analysis</a>
                                 <a href="docs/team-partners.md" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dropdown-item">Team & Partners</a>
                                 <a href="docs/faq.md" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dropdown-item">FAQ</a>
+                                <a href="docs/energy-prospects.md" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dropdown-item">Prospettiva Energetica</a>
                             </div>
                         </div>
                     </div>
@@ -102,6 +104,7 @@
                     <a href="docs/market-analysis.md" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50">Market Analysis</a>
                     <a href="docs/team-partners.md" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50">Team & Partners</a>
                     <a href="docs/faq.md" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50">FAQ</a>
+                    <a href="docs/energy-prospects.md" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50">Prospettiva Energetica</a>
                     <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50">Contatti</a>
                 </div>
             </div>
@@ -200,8 +203,33 @@
         </div>
     </section>
 
+    <!-- Prospettiva Energetica Section with Charts -->
+    <section id="energy-prospects" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center mb-10">
+                <h2 class="text-base text-blue-600 font-semibold tracking-wide uppercase">Prospettiva a Lungo Termine</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    Sviluppo Energetico: Residenziale e Business
+                </p>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+                    Analisi della crescita dell'integrazione tecnologica e dell'AI nel corso dei prossimi 15 anni.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4 text-center">Applicazioni Residenziali</h3>
+                    <canvas id="residential-chart"></canvas>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4 text-center">Applicazioni Business</h3>
+                    <canvas id="business-chart"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
-    <section id="contact" class="py-16 bg-white">
+    <section id="contact" class="py-16 bg-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
                 Mettiti in Contatto
@@ -290,6 +318,99 @@
     mobileMenuButton.addEventListener('click', () => {
         mobileMenu.classList.toggle('hidden');
     });
+
+    // Chart.js Data and Configuration
+    const chartLabels = ['5 Anni', '10 Anni', '15 Anni'];
+    const residentialData = {
+        labels: chartLabels,
+        datasets: [
+            {
+                label: 'Integrazione Tecnologica',
+                data: [50, 80, 100],
+                borderColor: '#2563eb',
+                backgroundColor: 'rgba(37, 99, 235, 0.2)',
+                tension: 0.4,
+                fill: false,
+                borderWidth: 3
+            },
+            {
+                label: 'Sviluppo AI',
+                data: [40, 75, 100],
+                borderColor: '#10b981',
+                backgroundColor: 'rgba(16, 185, 129, 0.2)',
+                tension: 0.4,
+                fill: false,
+                borderWidth: 3
+            }
+        ]
+    };
+
+    const businessData = {
+        labels: chartLabels,
+        datasets: [
+            {
+                label: 'Integrazione Tecnologica',
+                data: [60, 90, 100],
+                borderColor: '#2563eb',
+                backgroundColor: 'rgba(37, 99, 235, 0.2)',
+                tension: 0.4,
+                fill: false,
+                borderWidth: 3
+            },
+            {
+                label: 'Sviluppo AI',
+                data: [50, 85, 100],
+                borderColor: '#10b981',
+                backgroundColor: 'rgba(16, 185, 129, 0.2)',
+                tension: 0.4,
+                fill: false,
+                borderWidth: 3
+            }
+        ]
+    };
+
+    const chartOptions = {
+        responsive: true,
+        scales: {
+            y: {
+                beginAtZero: true,
+                max: 100,
+                title: {
+                    display: true,
+                    text: 'Livello di Sviluppo (%)'
+                }
+            }
+        },
+        plugins: {
+            legend: {
+                position: 'top',
+            },
+            tooltip: {
+                callbacks: {
+                    label: function(context) {
+                        return context.dataset.label + ': ' + context.parsed.y + '%';
+                    }
+                }
+            }
+        }
+    };
+
+    // Render the charts on page load
+    window.onload = function() {
+        const residentialCtx = document.getElementById('residential-chart').getContext('2d');
+        new Chart(residentialCtx, {
+            type: 'line',
+            data: residentialData,
+            options: chartOptions
+        });
+
+        const businessCtx = document.getElementById('business-chart').getContext('2d');
+        new Chart(businessCtx, {
+            type: 'line',
+            data: businessData,
+            options: chartOptions
+        });
+    };
 </script>
 
 </body>
