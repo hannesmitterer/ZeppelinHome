@@ -44,6 +44,19 @@
             width: 100%;
             height: 100%;
         }
+        @keyframes grow {
+            from {
+                transform: scaleX(0);
+            }
+            to {
+                transform: scaleX(1);
+            }
+        }
+        .bar-chart-bar {
+            transform: scaleX(0);
+            transform-origin: left;
+            animation: grow 1.5s ease-out forwards;
+        }
     </style>
 </head>
 <body class="antialiased text-gray-800">
@@ -201,9 +214,67 @@
             </div>
         </div>
     </section>
-    
+
+    <!-- Real-time Data Section (new) -->
+    <section id="real-time-data" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-base text-blue-600 font-semibold tracking-wide uppercase">Dati Live</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    Produzione e Consumo Energetico
+                </p>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+                    Ecco una panoramica in tempo reale (dati fittizi) del consumo energetico della casa e della produzione da fonti rinnovabili.
+                </p>
+            </div>
+            <div class="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+                <!-- Data Card: Power Consumption -->
+                <div class="p-6 bg-red-100 rounded-lg shadow-md">
+                    <div class="text-4xl font-bold text-red-600" id="power-consumption"></div>
+                    <p class="mt-2 text-lg text-gray-700">Consumo Energetico Attuale (kW)</p>
+                </div>
+                <!-- Data Card: Renewable Production -->
+                <div class="p-6 bg-green-100 rounded-lg shadow-md">
+                    <div class="text-4xl font-bold text-green-600" id="renewable-production"></div>
+                    <p class="mt-2 text-lg text-gray-700">Produzione Rinnovabile (kW)</p>
+                </div>
+                <!-- Data Card: Battery Level -->
+                <div class="p-6 bg-yellow-100 rounded-lg shadow-md">
+                    <div class="text-4xl font-bold text-yellow-600" id="battery-level"></div>
+                    <p class="mt-2 text-lg text-gray-700">Livello Batteria (%)</p>
+                </div>
+                <!-- Data Card: Carbon Footprint Reduction -->
+                <div class="p-6 bg-blue-100 rounded-lg shadow-md">
+                    <div class="text-4xl font-bold text-blue-600" id="carbon-reduction"></div>
+                    <p class="mt-2 text-lg text-gray-700">Riduzione CO2 (kg)</p>
+                </div>
+            </div>
+            <div class="mt-10">
+                <h3 class="text-xl font-bold text-gray-900 mb-4">Panoramica Giornaliera</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Daily Consumption -->
+                    <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+                        <h4 class="text-lg font-semibold mb-2">Consumo Giornaliero (kWh)</h4>
+                        <div class="h-4 bg-gray-300 rounded-full mb-2">
+                            <div class="bar-chart-bar h-full rounded-full bg-red-500" style="width: 70%;"></div>
+                        </div>
+                        <p class="text-right text-sm text-gray-600">70 kWh</p>
+                    </div>
+                    <!-- Daily Production -->
+                    <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+                        <h4 class="text-lg font-semibold mb-2">Produzione Giornaliera (kWh)</h4>
+                        <div class="h-4 bg-gray-300 rounded-full mb-2">
+                            <div class="bar-chart-bar h-full rounded-full bg-green-500" style="width: 85%;"></div>
+                        </div>
+                        <p class="text-right text-sm text-gray-600">85 kWh</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Energy Prospects Section -->
-    <section id="energy-prospects" class="py-16 bg-white">
+    <section id="energy-prospects" class="py-16 bg-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="lg:text-center">
                 <h2 class="text-base text-blue-600 font-semibold tracking-wide uppercase">Prospettiva Energetica</h2>
@@ -401,6 +472,29 @@
             createChart('residentialChart', residentialData);
             createChart('businessChart', businessData);
         });
+
+        // Function to update real-time data
+        function updateRealTimeData() {
+            const powerConsumption = document.getElementById('power-consumption');
+            const renewableProduction = document.getElementById('renewable-production');
+            const batteryLevel = document.getElementById('battery-level');
+            const carbonReduction = document.getElementById('carbon-reduction');
+
+            // Generate random mock data
+            const consumption = (Math.random() * 5 + 1).toFixed(2);
+            const production = (Math.random() * 6 + 1).toFixed(2);
+            const battery = Math.floor(Math.random() * 100);
+            const carbon = (Math.random() * 10).toFixed(2);
+
+            powerConsumption.textContent = consumption;
+            renewableProduction.textContent = production;
+            batteryLevel.textContent = battery + '%';
+            carbonReduction.textContent = carbon;
+        }
+
+        // Update data every 3 seconds
+        setInterval(updateRealTimeData, 3000);
+        updateRealTimeData(); // Initial call
     </script>
 </body>
 </html>
