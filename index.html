@@ -1,257 +1,310 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Klimawall® - Costruire Sano ed Ecologico</title>
+    <title>Zeppelin Home®</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f9fafb;
+            background-color: #f0f4f8;
+            color: #1a202c;
+            line-height: 1.6;
         }
-        .hero {
-            background-image: url('https://placehold.co/1920x1080/E0F2F1/0D9488?text=Costruire+con+Klimawall%C2%AE');
-            background-size: cover;
-            background-position: center;
+        /* A simple style for the navigation hover effect */
+        .nav-link:hover {
+            transform: translateY(-2px);
         }
-        .text-shadow-custom {
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
-        .card {
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        .ecosystem-component:hover {
+            fill: #60a5fa;
             cursor: pointer;
+            transition: fill 0.3s ease-in-out;
         }
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        .ecosystem-label {
+            user-select: none;
+            cursor: pointer;
         }
     </style>
 </head>
-<body class="bg-gray-100 text-gray-800">
+<body class="antialiased text-gray-800">
 
-    <!-- Header -->
-    <header class="bg-white shadow-sm sticky top-0 z-50">
-        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <div class="text-3xl font-bold text-teal-600">Klimawall®</div>
-            <nav class="hidden md:flex space-x-6">
-                <a href="#about" class="text-gray-600 hover:text-teal-600 transition-colors duration-300">Chi Siamo</a>
-                <a href="#system" class="text-gray-600 hover:text-teal-600 transition-colors duration-300">Il Sistema</a>
-                <a href="#zeppelinsmart" class="text-gray-600 hover:text-teal-600 transition-colors duration-300">ZeppelinSmart</a>
-                <a href="#benefits" class="text-gray-600 hover:text-teal-600 transition-colors duration-300">Vantaggi</a>
-                <a href="#contact" class="px-4 py-2 bg-teal-600 text-white rounded-full hover:bg-teal-700 transition-colors duration-300">Contattaci</a>
-            </nav>
-            <button id="mobile-menu-button" class="md:hidden text-gray-600 hover:text-teal-600 transition-colors duration-300">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-                </svg>
-            </button>
+    <!-- Navigation Bar -->
+    <nav class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <a href="#" class="text-2xl font-bold text-gray-900">Zeppelin Home®</a>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#" class="text-gray-600 hover:text-gray-900 font-medium transition duration-300 nav-link">Home</a>
+                    <a href="#docs" class="text-gray-600 hover:text-gray-900 font-medium transition duration-300 nav-link">Docs</a>
+                    <a href="#smart" class="text-gray-600 hover:text-gray-900 font-medium transition duration-300 nav-link">ZeppelinSmart</a>
+                    <a href="#community" class="text-gray-600 hover:text-gray-900 font-medium transition duration-300 nav-link">Community</a>
+                    <a href="#crowdfunding" class="text-gray-600 hover:text-gray-900 font-medium transition duration-300 nav-link">Crowdfunding</a>
+                    <a href="#contact" class="text-gray-600 hover:text-gray-900 font-medium transition duration-300 nav-link">Contact</a>
+                </div>
+            </div>
         </div>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white px-4 py-2 border-t border-gray-200">
-            <a href="#about" class="block py-2 text-gray-600 hover:text-teal-600">Chi Siamo</a>
-            <a href="#system" class="block py-2 text-gray-600 hover:text-teal-600">Il Sistema</a>
-            <a href="#zeppelinsmart" class="block py-2 text-gray-600 hover:text-teal-600">ZeppelinSmart</a>
-            <a href="#benefits" class="block py-2 text-gray-600 hover:text-teal-600">Vantaggi</a>
-            <a href="#contact" class="block py-2 text-white bg-teal-600 rounded-full text-center mt-2">Contattaci</a>
-        </div>
-    </header>
+    </nav>
 
-    <!-- Hero Section -->
-    <section class="hero text-center text-white py-24 md:py-48 rounded-b-3xl">
-        <div class="container mx-auto px-4">
-            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4 text-shadow-custom">
-                Klimawall®: Costruire Sano ed Ecologico
+    <!-- Hero Section with YouTube Video Background -->
+    <div class="relative overflow-hidden bg-gradient-to-br from-gray-900 to-gray-700 py-20 lg:py-40">
+        <!-- Video Background Container -->
+        <div class="absolute inset-0 z-0">
+            <iframe
+                src="https://www.youtube.com/embed/X2mdsyEAO_M?controls=0&showinfo=0&rel=0&autoplay=1&mute=1&loop=1&playlist=X2mdsyEAO_M&modestbranding=1"
+                frameborder="0"
+                allow="autoplay; encrypted-media"
+                allowfullscreen
+                class="absolute inset-0 w-full h-full object-cover"
+            ></iframe>
+            <!-- Dark Overlay for Readability -->
+            <div class="absolute inset-0 bg-black opacity-50"></div>
+        </div>
+        
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-tight">
+                Zeppelin Home®
             </h1>
-            <p class="text-lg md:text-xl mb-8 text-shadow-custom">
-                Promuoviamo soluzioni innovative e sostenibili per un costruire rispettoso dell'ambiente e della vita.
-            </p>
-            <a href="#contact" class="inline-block px-8 py-4 text-lg font-semibold bg-teal-600 text-white rounded-full shadow-lg hover:bg-teal-700 transition-all duration-300 transform hover:scale-105">
-                Scopri di più
-            </a>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="py-16 md:py-24">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-teal-600">Il nostro impegno per un futuro migliore</h2>
-            <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-                La nostra missione è guidare il settore dell'architettura verso un futuro sostenibile e attento alle esigenze del pianeta e delle generazioni future, promuovendo l'ecosostenibilità in sintonia con l'architettura e la progettazione bioclimatica.
+            <p class="mt-4 text-xl sm:text-2xl text-gray-300 font-light max-w-3xl mx-auto">
+                The **Conceptional DNA** of a revolutionary, self-powered smart home. It's not just a product, but an ecosystem.
             </p>
         </div>
-    </section>
+    </div>
 
-    <!-- Klimawall® System Section -->
-    <section id="system" class="py-16 md:py-24 bg-white rounded-3xl mx-4 shadow-xl">
-        <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                    <h3 class="text-3xl font-bold mb-4 text-gray-800">Come funziona il sistema Klimawall®</h3>
-                    <p class="text-lg text-gray-600 mb-6">
-                        Il sistema costruttivo Klimawall® utilizza ipocausti per la ventilazione che formano una complessa rete di canali, collegando la soletta di fondazione alla copertura e ai collettori solari. Questo permette un ricircolo dell'aria continuo con recupero termico, gestito attivamente per il massimo del comfort e dell'efficienza.
-                    </p>
-                    <div class="space-y-6">
-                        <div class="flex items-start space-x-4">
-                            <div class="flex-shrink-0 w-12 h-12 bg-teal-500 rounded-full flex items-center justify-center text-white">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
-                                </svg>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-lg text-gray-800">Funzione Invernale</h4>
-                                <ul class="text-gray-600 list-disc list-inside">
-                                    <li>Prelevamento dell'aria da sotto il tetto e riscaldamento in un collettore solare.</li>
-                                    <li>Convogliamento dell'aria attraverso pareti ventilate e canali sotto la soletta di fondazione.</li>
-                                    <li>Immissione dell'aria calda a pavimento per un riscaldamento uniforme.</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="flex items-start space-x-4">
-                            <div class="flex-shrink-0 w-12 h-12 bg-teal-500 rounded-full flex items-center justify-center text-white">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.01 12.01 0 003 12c0 2.518.744 4.862 2.053 6.892L12 22l6.946-3.108A12.01 12.01 0 0021 12c0-2.378-.501-4.636-1.382-6.666z"></path>
-                                </svg>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-lg text-gray-800">Funzione Estiva</h4>
-                                <ul class="text-gray-600 list-disc list-inside">
-                                    <li>Prelevamento dell'aria fresca dal lato nord della casa.</li>
-                                    <li>Raffrescamento dell'aria attraverso pareti ventilate e canali sotto la soletta.</li>
-                                    <li>Immissione dell'aria fresca a pavimento per un raffrescamento naturale.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="order-first md:order-last">
-                    <img src="https://placehold.co/600x400/14B8A6/FFFFFF?text=Schema+del+sistema+Klimawall%C2%AE" alt="Schema del sistema Klimawall®" class="rounded-2xl shadow-lg w-full">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ZeppelinSmart Integration Section -->
-    <section id="zeppelinsmart" class="py-16 md:py-24 bg-gray-50 rounded-3xl mx-4 shadow-xl">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-teal-600">ZeppelinSmart: L'intelligenza che potenzia Klimawall®</h2>
-            <p class="text-lg text-gray-600 max-w-3xl mx-auto mb-8">
-                ZeppelinSmart è il cervello del sistema, una piattaforma di gestione intelligente che monitora e ottimizza costantemente i flussi di aria e energia. Sfrutta al massimo l'impianto fotovoltaico integrato per alimentare gli scambiatori e le pompe di calore, garantendo la massima efficienza energetica e il massimo comfort abitativo.
-            </p>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
-                <div class="bg-white p-6 rounded-2xl shadow-md card">
-                    <h4 class="font-semibold text-xl mb-2 text-gray-800">Gestione Energetica Intelligente</h4>
-                    <p class="text-gray-600 text-sm">Ottimizza l'uso dell'energia prodotta dall'impianto fotovoltaico per il riscaldamento, il raffrescamento e la produzione di acqua calda.</p>
-                </div>
-                <div class="bg-white p-6 rounded-2xl shadow-md card">
-                    <h4 class="font-semibold text-xl mb-2 text-gray-800">Monitoraggio e Controllo da Remoto</h4>
-                    <p class="text-gray-600 text-sm">Tieni sotto controllo la temperatura, l'umidità e i consumi energetici del tuo edificio direttamente dal tuo smartphone o tablet.</p>
-                </div>
-                <div class="bg-white p-6 rounded-2xl shadow-md card">
-                    <h4 class="font-semibold text-xl mb-2 text-gray-800">Massimo Comfort e Salute</h4>
-                    <p class="text-gray-600 text-sm">Regola in modo proattivo il ricircolo dell'aria per mantenere la temperatura ottimale e garantire un ambiente interno salubre.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Benefits Section -->
-    <section id="benefits" class="py-16 md:py-24">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center text-teal-600">I Vantaggi di Klimawall®</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="bg-white p-6 rounded-2xl shadow-md card">
-                    <div class="flex items-center justify-center w-16 h-16 bg-teal-100 text-teal-600 rounded-full mb-4">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
-                    </div>
-                    <h4 class="font-semibold text-xl mb-2 text-gray-800">Alto Isolamento & Comfort</h4>
-                    <p class="text-gray-600 text-sm">Il sistema offre un isolamento termico superiore, garantendo una temperatura interna di circa 22°C tutto l'anno, con un notevole smorzamento dell'onda termica e assenza di umidità.</p>
-                </div>
-                <div class="bg-white p-6 rounded-2xl shadow-md card">
-                    <div class="flex items-center justify-center w-16 h-16 bg-teal-100 text-teal-600 rounded-full mb-4">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                        </svg>
-                    </div>
-                    <h4 class="font-semibold text-xl mb-2 text-gray-800">Efficienza Energetica</h4>
-                    <p class="text-gray-600 text-sm">Grazie al ricircolo dell'aria e all'integrazione con sistemi fotovoltaici, Klimawall® riduce drasticamente i consumi energetici, contribuendo a un futuro a zero emissioni.</p>
-                </div>
-                <div class="bg-white p-6 rounded-2xl shadow-md card">
-                    <div class="flex items-center justify-center w-16 h-16 bg-teal-100 text-teal-600 rounded-full mb-4">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6-6l-4-4m-6 0l-4-4m14-4l-4-4m6 6l-4-4m-6 0l-4-4m14 4l-4 4"></path>
-                        </svg>
-                    </div>
-                    <h4 class="font-semibold text-xl mb-2 text-gray-800">Sicurezza Antisismica</h4>
-                    <p class="text-gray-600 text-sm">La struttura in legno Brettstapel offre un'eccellente resistenza antisismica, come dimostrato dalla Scuola Antisismica di Pieve di Coriano.</p>
-                </div>
-                <div class="bg-white p-6 rounded-2xl shadow-md card">
-                    <div class="flex items-center justify-center w-16 h-16 bg-teal-100 text-teal-600 rounded-full mb-4">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-                        </svg>
-                    </div>
-                    <h4 class="font-semibold text-xl mb-2 text-gray-800">Semplicità e Design</h4>
-                    <p class="text-gray-600 text-sm">La tecnologia attiva è integrata direttamente nella struttura portante, eliminando la necessità di isolare l'intero edificio e offrendo una ventilazione naturale con la semplice apertura delle finestre.</p>
-                </div>
-            </div>
-            <div class="mt-12 text-center">
-                <p class="text-xl font-bold text-gray-800">La combinazione di aria accumulata e pareti in legno produce un notevole vantaggio per la climatizzazione e l’assenza di umidità!</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Case Study Section -->
-    <section class="py-16 md:py-24">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-8 text-teal-600">Scuola Antisismica a Pieve di Coriano</h2>
-            <div class="max-w-4xl mx-auto">
-                <img src="https://placehold.co/800x600/14B8A6/FFFFFF?text=Scuola+Antisismica+a+Pieve+di+Coriano" alt="Scuola Antisismica a Pieve di Coriano" class="rounded-2xl shadow-lg mb-8 w-full">
-                <p class="text-lg text-gray-600">
-                    Il concetto di "casa nella casa" apre a una nuova visione del controllo energetico dell'edificio. Il fabbricato, circondato da un secondo involucro, si trova all'interno di un nuovo sistema climatico. Questa "nuova pelle" funge da catalizzatore di energia, integrando gli apparati tecnici di captazione solare e fornendo ulteriore protezione dagli effetti del clima.
+    <!-- Main Content Summary -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-base text-gray-600 font-semibold tracking-wide uppercase">Project Overview</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    The Smart Home of the Future
+                </p>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+                    Zeppelin Home is an innovative project centered around a sustainable, integrated smart living platform. Our goal is to create a seamless experience where technology, design, and environment coexist in perfect harmony.
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-16 md:py-24 bg-white rounded-t-3xl shadow-lg">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-teal-600">Contattaci</h2>
-            <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-                Siamo pronti a rispondere a tutte le tue domande. Compila il modulo sottostante per metterti in contatto con il nostro team.
+    <!-- Docs Section (docs/) -->
+    <section id="docs" class="py-16 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-base text-blue-600 font-semibold tracking-wide uppercase">Documentation</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    Full Documentation Package
+                </p>
+            </div>
+            <div class="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <a href="#" class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-all duration-300">
+                    <h3 class="text-lg font-bold text-gray-900">Executive Summary & Business Plan</h3>
+                    <p class="mt-2 text-gray-600">Explore the full vision and strategic direction of Zeppelin Home®.</p>
+                </a>
+                <a href="#" class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-all duration-300">
+                    <h3 class="text-lg font-bold text-gray-900">Technical Specifications</h3>
+                    <p class="mt-2 text-gray-600">In-depth details on the technology and engineering behind the platform.</p>
+                </a>
+                <a href="#" class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-all duration-300">
+                    <h3 class="text-lg font-bold text-gray-900">User Guide</h3>
+                    <p class="mt-2 text-gray-600">Comprehensive instructions for setup, usage, and maintenance.</p>
+                </a>
+                <a href="#" class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-all duration-300">
+                    <h3 class="text-lg font-bold text-gray-900">Market Analysis</h3>
+                    <p class="mt-2 text-gray-600">Understanding the market need, competitive landscape, and target audience.</p>
+                </a>
+                <a href="#" class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-all duration-300">
+                    <h3 class="text-lg font-bold text-gray-900">Team & Partners</h3>
+                    <p class="mt-2 text-gray-600">Meet the core team, advisors, and valued partners.</p>
+                </a>
+                <a href="#" class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-all duration-300">
+                    <h3 class="text-lg font-bold text-gray-900">FAQ</h3>
+                    <p class="mt-2 text-gray-600">Find answers to frequently asked questions about the project.</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ZeppelinSmart Section (smart/) -->
+    <section id="smart" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-base text-blue-600 font-semibold tracking-wide uppercase">ZeppelinSmart</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    The Interactive Ecosystem
+                </p>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+                    Click on the components below to learn how they work together to create a seamless smart living experience.
+                </p>
+            </div>
+            <div class="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <!-- Interactive SVG Diagram -->
+                <div class="relative w-full overflow-hidden bg-gray-100 rounded-lg shadow-lg p-4 md:p-8">
+                    <svg class="w-full h-auto" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <filter id="shadow">
+                                <feDropShadow dx="2" dy="2" stdDeviation="2" flood-color="#000" flood-opacity="0.2"/>
+                            </filter>
+                        </defs>
+                        <!-- Main House Outline -->
+                        <path d="M50 250 H750 V450 H50 Z" stroke="#334155" stroke-width="5" fill="#e2e8f0" filter="url(#shadow)"/>
+                        <path d="M50 250 L400 50 L750 250" stroke="#334155" stroke-width="5" fill="#cbd5e1" filter="url(#shadow)"/>
+
+                        <!-- Ecosystem Components with IDs -->
+                        <rect id="power-core" x="100" y="300" width="100" height="100" rx="10" fill="#f87171" class="ecosystem-component"/>
+                        <rect id="smart-hub" x="350" y="300" width="100" height="100" rx="10" fill="#60a5fa" class="ecosystem-component"/>
+                        <rect id="mobile-app" x="600" y="300" width="100" height="100" rx="10" fill="#a78bfa" class="ecosystem-component"/>
+
+                        <!-- Labels -->
+                        <text x="150" y="425" text-anchor="middle" font-size="20" font-weight="bold" fill="#334155" class="ecosystem-label">Power Core</text>
+                        <text x="400" y="425" text-anchor="middle" font-size="20" font-weight="bold" fill="#334155" class="ecosystem-label">Smart Hub</text>
+                        <text x="650" y="425" text-anchor="middle" font-size="20" font-weight="bold" fill="#334155" class="ecosystem-label">Mobile App</text>
+                        
+                        <!-- Connecting Lines -->
+                        <line x1="150" y1="350" x2="400" y2="350" stroke="#94a3b8" stroke-width="3" stroke-dasharray="5,5"/>
+                        <line x1="400" y1="350" x2="650" y2="350" stroke="#94a3b8" stroke-width="3" stroke-dasharray="5,5"/>
+                    </svg>
+                </div>
+                <!-- Details Pop-up -->
+                <div id="details-panel" class="bg-gray-100 p-6 rounded-lg shadow-lg transition-all duration-300 scale-95 opacity-0 hidden">
+                    <h3 id="details-title" class="text-xl font-bold text-gray-900 mb-2"></h3>
+                    <p id="details-text" class="text-gray-600"></p>
+                    <button onclick="hideDetails()" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition duration-300">Close</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section (community/) -->
+    <section id="community" class="py-16 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+                Join the Zeppelin Community
+            </h2>
+            <p class="mt-4 text-xl text-gray-500 max-w-2xl mx-auto">
+                Connect with us, share your stories, and get involved in the future of smart living.
             </p>
-            <form class="max-w-lg mx-auto space-y-6">
-                <input type="text" placeholder="Nome completo" class="w-full px-4 py-3 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500">
-                <input type="email" placeholder="Email" class="w-full px-4 py-3 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500">
-                <textarea placeholder="Il tuo messaggio..." rows="4" class="w-full px-4 py-3 rounded-2xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500"></textarea>
-                <button type="submit" class="w-full px-6 py-4 text-lg font-semibold bg-teal-600 text-white rounded-full shadow-lg hover:bg-teal-700 transition-all duration-300 transform hover:scale-105">
-                    Invia Messaggio
-                </button>
-            </form>
+            <div class="mt-8 flex justify-center space-x-4">
+                <a href="#" class="px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-full font-semibold transition duration-300 transform hover:scale-105 shadow-lg">
+                    Join Our Forum
+                </a>
+                <a href="#" class="px-6 py-3 bg-transparent border-2 border-gray-800 text-gray-800 rounded-full font-semibold transition duration-300 transform hover:bg-gray-800 hover:text-white">
+                    Read User Stories
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Crowdfunding Section (crowdfunding/) -->
+    <section id="crowdfunding" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-base text-blue-600 font-semibold tracking-wide uppercase">Crowdfunding Campaign</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    Help Us Build the Future
+                </p>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+                    Your support brings the Zeppelin Home® vision to life. Learn about our campaign goals, reward tiers, and how your contribution will be used.
+                </p>
+            </div>
+            <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-gray-100 rounded-lg p-6">
+                    <h3 class="text-lg font-bold text-gray-900">Campaign Progress</h3>
+                    <img src="https://placehold.co/600x300/e2e8f0/4a5568?text=Funding+Progress+Chart" alt="Crowdfunding progress chart" class="mt-4 w-full rounded-md">
+                    <p class="mt-4 text-gray-600">See how close we are to reaching our next milestone!</p>
+                </div>
+                <div class="bg-gray-100 rounded-lg p-6">
+                    <h3 class="text-lg font-bold text-gray-900">Exclusive Backer Rewards</h3>
+                    <ul class="mt-4 space-y-2 text-gray-600">
+                        <li>- Early access to the platform</li>
+                        <li>- Exclusive merchandise</li>
+                        <li>- Special mentions and recognition</li>
+                        <li>- Foundational member status</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+                Get in Touch
+            </h2>
+            <p class="mt-4 text-xl text-gray-500 max-w-2xl mx-auto">
+                For media inquiries, partnerships, or support, please use the contact form below.
+            </p>
+            <div class="mt-8">
+                <form class="max-w-xl mx-auto space-y-4">
+                    <input type="text" placeholder="Your Name" class="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <input type="email" placeholder="Your Email" class="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <textarea placeholder="Your Message" rows="4" class="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                    <button type="submit" class="w-full px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-md font-semibold transition duration-300">
+                        Send Message
+                    </button>
+                </form>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8">
-        <div class="container mx-auto px-4 text-center">
-            <p class="text-sm">© 2025 BIOA S.R.L. Tutti i diritti riservati.</p>
+    <footer class="bg-gray-800 text-white py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>&copy; 2024 Zeppelin Home®. All rights reserved.</p>
         </div>
     </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
+<script>
+    // Data for the interactive diagram
+    const ecosystemData = {
+        'power-core': {
+            title: 'Zeppelin Power Core',
+            description: 'The Power Core is the heart of the system, a self-sufficient energy solution that provides continuous power to all smart home devices, eliminating reliance on the grid.'
+        },
+        'smart-hub': {
+            title: 'Zeppelin Smart Hub',
+            description: 'The central brain that connects and coordinates all smart devices. It uses on-device AI for lightning-fast automation and seamless interoperability.'
+        },
+        'mobile-app': {
+            title: 'Zeppelin Mobile App',
+            description: 'Manage your entire ecosystem from anywhere. The intuitive app provides real-time data, full control over devices, and personalized insights.'
+        }
+    };
 
-            mobileMenuButton.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
-        });
-    </script>
+    // Get the details panel and its elements
+    const detailsPanel = document.getElementById('details-panel');
+    const detailsTitle = document.getElementById('details-title');
+    const detailsText = document.getElementById('details-text');
+
+    // Function to show details panel
+    function showDetails(componentId) {
+        const data = ecosystemData[componentId];
+        if (data) {
+            detailsTitle.textContent = data.title;
+            detailsText.textContent = data.description;
+            detailsPanel.classList.remove('hidden', 'opacity-0', 'scale-95');
+            detailsPanel.classList.add('opacity-100', 'scale-100');
+        }
+    }
+
+    // Function to hide details panel
+    function hideDetails() {
+        detailsPanel.classList.remove('opacity-100', 'scale-100');
+        detailsPanel.classList.add('opacity-0', 'scale-95');
+        setTimeout(() => {
+            detailsPanel.classList.add('hidden');
+        }, 300); // Wait for transition to finish before hiding
+    }
+
+    // Add event listeners to each SVG component
+    document.getElementById('power-core').addEventListener('click', () => showDetails('power-core'));
+    document.getElementById('smart-hub').addEventListener('click', () => showDetails('smart-hub'));
+    document.getElementById('mobile-app').addEventListener('click', () => showDetails('mobile-app'));
+
+</script>
 
 </body>
 </html>
