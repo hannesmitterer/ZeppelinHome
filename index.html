@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zeppelin Home®</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
         body {
@@ -78,14 +77,13 @@
                         </button>
                         <div class="absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden group-hover:block">
                             <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+                                <a href="docs/business-plan.md" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dropdown-item">Business Plan</a>
                                 <a href="docs/market-analysis.md" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dropdown-item">Market Analysis</a>
                                 <a href="docs/team-partners.md" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dropdown-item">Team & Partners</a>
                                 <a href="docs/faq.md" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dropdown-item">FAQ</a>
-                                <a href="docs/energy-prospects.md" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dropdown-item">Prospettiva Energetica</a>
                             </div>
                         </div>
                     </div>
-                    <a href="#crowdfunding" class="text-gray-600 hover:text-gray-900 font-medium transition duration-300 nav-link">Crowdfunding</a>
                     <a href="#contact" class="px-4 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition duration-300">Contatti</a>
                 </div>
                 <button id="mobile-menu-button" class="md:hidden text-gray-600 hover:text-gray-900 focus:outline-none">
@@ -102,11 +100,10 @@
                     <a href="docs/technical-specifications.md" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50">Tech Specs</a>
                     <a href="docs/user-guide.md" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50">User Guide</a>
                     <a href="docs/pillars.md" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50">Pillars</a>
+                    <a href="docs/business-plan.md" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50">Business Plan</a>
                     <a href="docs/market-analysis.md" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50">Market Analysis</a>
                     <a href="docs/team-partners.md" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50">Team & Partners</a>
                     <a href="docs/faq.md" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50">FAQ</a>
-                    <a href="docs/energy-prospects.md" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50">Prospettiva Energetica</a>
-                    <a href="#crowdfunding" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50">Crowdfunding</a>
                     <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50">Contatti</a>
                 </div>
             </div>
@@ -204,58 +201,59 @@
             </div>
         </div>
     </section>
-
-    <!-- Prospettiva Energetica Section with Charts -->
+    
+    <!-- Energy Prospects Section -->
     <section id="energy-prospects" class="py-16 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="lg:text-center mb-10">
-                <h2 class="text-base text-blue-600 font-semibold tracking-wide uppercase">Prospettiva a Lungo Termine</h2>
+            <div class="lg:text-center">
+                <h2 class="text-base text-blue-600 font-semibold tracking-wide uppercase">Prospettiva Energetica</h2>
                 <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-                    Sviluppo Energetico: Residenziale e Business
+                    Roadmap per l'Ottimizzazione Energetica
                 </p>
                 <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
-                    Analisi della crescita dell'integrazione tecnologica e dell'AI nel corso dei prossimi 15 anni.
+                    La nostra strategia di evoluzione del Power Core, separata per applicazioni residenziali e aziendali, si concentra sull'integrazione di tecnologie sostenibili e sullo sviluppo dell'AI.
                 </p>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            
+            <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-12">
                 <div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-4 text-center">Applicazioni Residenziali</h3>
-                    <canvas id="residential-chart"></canvas>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Applicazioni Residenziali</h3>
+                    <canvas id="residentialChart"></canvas>
                 </div>
                 <div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-4 text-center">Applicazioni Business</h3>
-                    <canvas id="business-chart"></canvas>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Applicazioni Aziendali</h3>
+                    <canvas id="businessChart"></canvas>
                 </div>
             </div>
         </div>
     </section>
-    
+
     <!-- Crowdfunding Section -->
     <section id="crowdfunding" class="py-16 bg-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                Sostieni il Nostro Futuro
+                Sostieni il Futuro di Zeppelin Home®
             </h2>
             <p class="mt-4 text-xl text-gray-500 max-w-2xl mx-auto">
-                Il tuo contributo è essenziale per trasformare Zeppelin Home in una realtà. Aiutaci a rivoluzionare il modo in cui viviamo, connettendo la sostenibilità all'innovazione.
+                Aiutaci a trasformare il nostro DNA concettuale in una realtà. Il tuo contributo ci permetterà di finanziare la fase di prototipazione e portare la smart home del futuro nelle case di tutti.
             </p>
             <div class="mt-8 max-w-md mx-auto">
-                <div class="bg-white rounded-lg shadow-lg p-6">
-                    <p class="text-lg font-semibold text-gray-700">Raccolto: <span class="text-blue-600 font-bold">$15,000</span> di $50,000</p>
-                    <div class="mt-4 w-full bg-gray-200 rounded-full h-4">
-                        <div class="bg-blue-500 h-4 rounded-full" style="width: 30%;"></div>
-                    </div>
-                    <a href="#" class="mt-6 inline-block px-8 py-3 bg-green-500 text-white font-semibold rounded-full hover:bg-green-600 transition duration-300">
-                        Contribuisci ora
-                    </a>
+                <div class="w-full bg-gray-200 rounded-full h-8 overflow-hidden">
+                    <div class="bg-blue-600 h-8 rounded-full" style="width: 75%;"></div>
+                </div>
+                <div class="flex justify-between mt-2 text-gray-600 text-sm font-semibold">
+                    <span>Raccolti: $225,000</span>
+                    <span>Obiettivo: $300,000</span>
                 </div>
             </div>
+            <a href="docs/business-plan.md" class="mt-8 inline-block px-8 py-3 bg-blue-600 text-white font-semibold rounded-full shadow-lg hover:bg-blue-700 transition duration-300">
+                Scopri il Business Plan e Sostienici
+            </a>
         </div>
     </section>
 
-
     <!-- Contact Section -->
-    <section id="contact" class="py-16 bg-gray-100">
+    <section id="contact" class="py-16 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
                 Mettiti in Contatto
@@ -283,161 +281,126 @@
         </div>
     </footer>
 
-<script>
-    const ecosystemData = {
-        'power-core': {
-            title: 'Zeppelin Power Core',
-            description: 'Il Power Core è il cuore del sistema, una soluzione energetica autosufficiente che integra la raccolta solare, cinetica e geotermica per fornire energia continua e off-grid a tutti i dispositivi della smart home.'
-        },
-        'smart-hub': {
-            title: 'Zeppelin Smart Hub',
-            description: 'Il cervello centrale che collega e coordina tutti i dispositivi intelligenti. Utilizza l\'AI on-device per un\'automazione fulminea e un\'interoperabilità senza soluzione di continuità, imparando e adattandosi ai tuoi schemi di vita per ottimizzare il comfort e l\'efficienza.'
-        },
-        'mobile-app': {
-            title: 'Zeppelin Mobile App',
-            description: 'Gestisci l\'intero ecosistema da qualsiasi luogo. L\'app intuitiva fornisce dati in tempo reale sul consumo energetico, il controllo completo sui dispositivi e approfondimenti personalizzati per aiutarti a ridurre il tuo impatto ambientale.'
+    <!-- Chart.js and custom script -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const ecosystemData = {
+            'power-core': {
+                title: 'Zeppelin Power Core',
+                description: 'Il Power Core è il cuore del sistema, una soluzione energetica autosufficiente che integra la raccolta solare, cinetica e geotermica per fornire energia continua e off-grid a tutti i dispositivi della smart home.'
+            },
+            'smart-hub': {
+                title: 'Zeppelin Smart Hub',
+                description: 'Il cervello centrale che collega e coordina tutti i dispositivi intelligenti. Utilizza l\'AI on-device per un\'automazione fulminea e un\'interoperabilità senza soluzione di continuità, imparando e adattandosi ai tuoi schemi di vita per ottimizzare il comfort e l\'efficienza.'
+            },
+            'mobile-app': {
+                title: 'Zeppelin Mobile App',
+                description: 'Gestisci l\'intero ecosistema da qualsiasi luogo. L\'app intuitiva fornisce dati in tempo reale sul consumo energetico, il controllo completo sui dispositivi e approfondimenti personalizzati per aiutarti a ridurre il tuo impatto ambientale.'
+            }
+        };
+
+        const detailsPanel = document.getElementById('details-panel');
+        const detailsTitle = document.getElementById('details-title');
+        const detailsText = document.getElementById('details-text');
+        const successModal = document.getElementById('success-modal');
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        function showDetails(componentId) {
+            const data = ecosystemData[componentId];
+            if (data) {
+                detailsTitle.textContent = data.title;
+                detailsText.textContent = data.description;
+                detailsPanel.style.opacity = '0';
+                detailsPanel.classList.remove('hidden');
+                setTimeout(() => {
+                    detailsPanel.style.opacity = '1';
+                    detailsPanel.style.transform = 'scale(1)';
+                }, 10);
+            }
         }
-    };
 
-    const detailsPanel = document.getElementById('details-panel');
-    const detailsTitle = document.getElementById('details-title');
-    const detailsText = document.getElementById('details-text');
-    const successModal = document.getElementById('success-modal');
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-
-    function showDetails(componentId) {
-        const data = ecosystemData[componentId];
-        if (data) {
-            detailsTitle.textContent = data.title;
-            detailsText.textContent = data.description;
+        function hideDetails() {
             detailsPanel.style.opacity = '0';
-            detailsPanel.classList.remove('hidden');
+            detailsPanel.style.transform = 'scale(0.95)';
             setTimeout(() => {
-                detailsPanel.style.opacity = '1';
-                detailsPanel.style.transform = 'scale(1)';
-            }, 10);
+                detailsPanel.classList.add('hidden');
+            }, 500);
         }
-    }
 
-    function hideDetails() {
-        detailsPanel.style.opacity = '0';
-        detailsPanel.style.transform = 'scale(0.95)';
-        setTimeout(() => {
-            detailsPanel.classList.add('hidden');
-        }, 500);
-    }
+        document.getElementById('power-core').addEventListener('click', () => showDetails('power-core'));
+        document.getElementById('smart-hub').addEventListener('click', () => showDetails('smart-hub'));
+        document.getElementById('mobile-app').addEventListener('click', () => showDetails('mobile-app'));
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            successModal.classList.remove('hidden');
+        });
 
-    document.getElementById('power-core').addEventListener('click', () => showDetails('power-core'));
-    document.getElementById('smart-hub').addEventListener('click', () => showDetails('smart-hub'));
-    document.getElementById('mobile-app').addEventListener('click', () => showDetails('mobile-app'));
+        function hideModal() {
+            successModal.classList.add('hidden');
+        }
 
-    document.getElementById('contact-form').addEventListener('submit', function(event) {
-        event.preventDefault();
-        successModal.classList.remove('hidden');
-    });
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
 
-    function hideModal() {
-        successModal.classList.add('hidden');
-    }
+        // Chart Data
+        const chartLabels = ['Anno 5', 'Anno 10', 'Anno 15'];
+        const residentialData = [
+            { label: 'Integrazione', data: [70, 90, 100], borderColor: '#f87171' },
+            { label: 'Sviluppo AI', data: [60, 85, 100], borderColor: '#60a5fa' }
+        ];
+        const businessData = [
+            { label: 'Integrazione', data: [50, 80, 100], borderColor: '#f87171' },
+            { label: 'Sviluppo AI', data: [40, 75, 100], borderColor: '#60a5fa' }
+        ];
 
-    mobileMenuButton.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-    });
-
-    // Chart.js Data and Configuration
-    const chartLabels = ['5 Anni', '10 Anni', '15 Anni'];
-    const residentialData = {
-        labels: chartLabels,
-        datasets: [
-            {
-                label: 'Integrazione Tecnologica',
-                data: [50, 80, 100],
-                borderColor: '#2563eb',
-                backgroundColor: 'rgba(37, 99, 235, 0.2)',
-                tension: 0.4,
-                fill: false,
-                borderWidth: 3
-            },
-            {
-                label: 'Sviluppo AI',
-                data: [40, 75, 100],
-                borderColor: '#10b981',
-                backgroundColor: 'rgba(16, 185, 129, 0.2)',
-                tension: 0.4,
-                fill: false,
-                borderWidth: 3
-            }
-        ]
-    };
-
-    const businessData = {
-        labels: chartLabels,
-        datasets: [
-            {
-                label: 'Integrazione Tecnologica',
-                data: [60, 90, 100],
-                borderColor: '#2563eb',
-                backgroundColor: 'rgba(37, 99, 235, 0.2)',
-                tension: 0.4,
-                fill: false,
-                borderWidth: 3
-            },
-            {
-                label: 'Sviluppo AI',
-                data: [50, 85, 100],
-                borderColor: '#10b981',
-                backgroundColor: 'rgba(16, 185, 129, 0.2)',
-                tension: 0.4,
-                fill: false,
-                borderWidth: 3
-            }
-        ]
-    };
-
-    const chartOptions = {
-        responsive: true,
-        scales: {
-            y: {
-                beginAtZero: true,
-                max: 100,
-                title: {
-                    display: true,
-                    text: 'Livello di Sviluppo (%)'
-                }
-            }
-        },
-        plugins: {
-            legend: {
-                position: 'top',
-            },
-            tooltip: {
-                callbacks: {
-                    label: function(context) {
-                        return context.dataset.label + ': ' + context.parsed.y + '%';
+        function createChart(canvasId, datasets) {
+            const ctx = document.getElementById(canvasId).getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: chartLabels,
+                    datasets: datasets.map(d => ({
+                        label: d.label,
+                        data: d.data,
+                        borderColor: d.borderColor,
+                        tension: 0.4,
+                        fill: false
+                    }))
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100,
+                            title: {
+                                display: true,
+                                text: 'Percentuale di Sviluppo (%)'
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `${context.dataset.label}: ${context.raw}%`;
+                                }
+                            }
+                        }
                     }
                 }
-            }
+            });
         }
-    };
-
-    // Render the charts on page load
-    window.onload = function() {
-        const residentialCtx = document.getElementById('residential-chart').getContext('2d');
-        new Chart(residentialCtx, {
-            type: 'line',
-            data: residentialData,
-            options: chartOptions
+        
+        window.addEventListener('DOMContentLoaded', (event) => {
+            createChart('residentialChart', residentialData);
+            createChart('businessChart', businessData);
         });
-
-        const businessCtx = document.getElementById('business-chart').getContext('2d');
-        new Chart(businessCtx, {
-            type: 'line',
-            data: businessData,
-            options: chartOptions
-        });
-    };
-</script>
-
+    </script>
 </body>
 </html>
