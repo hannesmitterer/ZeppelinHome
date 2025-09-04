@@ -13,7 +13,7 @@
             color: #1a202c;
             line-height: 1.6;
         }
-        .nav-link:hover {
+        .nav-link:hover, .dropdown-item:hover {
             transform: translateY(-2px);
             transition: transform 0.3s ease;
         }
@@ -64,13 +64,43 @@
                 <div class="flex-shrink-0">
                     <a href="#" class="text-2xl font-bold text-gray-900">Zeppelin Home®</a>
                 </div>
-                <div class="hidden md:flex space-x-8">
+                <div class="hidden md:flex space-x-8 items-center">
                     <a href="#" class="text-gray-600 hover:text-gray-900 font-medium transition duration-300 nav-link">Home</a>
-                    <!-- Links updated to point to new Markdown files -->
                     <a href="docs/executive-summary.md" class="text-gray-600 hover:text-gray-900 font-medium transition duration-300 nav-link">Executive Summary</a>
                     <a href="docs/technical-specifications.md" class="text-gray-600 hover:text-gray-900 font-medium transition duration-300 nav-link">Tech Specs</a>
-                    <a href="#zeppelin-smart" class="text-gray-600 hover:text-gray-900 font-medium transition duration-300 nav-link">ZeppelinSmart</a>
-                    <a href="#contact" class="text-gray-600 hover:text-gray-900 font-medium transition duration-300 nav-link">Contact</a>
+                    <a href="docs/user-guide.md" class="text-gray-600 hover:text-gray-900 font-medium transition duration-300 nav-link">User Guide</a>
+                    <div class="relative group">
+                        <button class="text-gray-600 hover:text-gray-900 font-medium transition duration-300 focus:outline-none flex items-center">
+                            Documentation
+                            <svg class="w-4 h-4 ml-1 transform group-hover:rotate-180 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden group-hover:block">
+                            <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+                                <a href="docs/market-analysis.md" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dropdown-item">Market Analysis</a>
+                                <a href="docs/team-partners.md" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dropdown-item">Team & Partners</a>
+                                <a href="docs/faq.md" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dropdown-item">FAQ</a>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#contact" class="px-4 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition duration-300">Contact</a>
+                </div>
+                <button id="mobile-menu-button" class="md:hidden text-gray-600 hover:text-gray-900 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden">
+                <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                    <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 bg-gray-100">Home</a>
+                    <a href="docs/executive-summary.md" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50">Executive Summary</a>
+                    <a href="docs/technical-specifications.md" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50">Tech Specs</a>
+                    <a href="docs/user-guide.md" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50">User Guide</a>
+                    <a href="docs/market-analysis.md" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50">Market Analysis</a>
+                    <a href="docs/team-partners.md" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50">Team & Partners</a>
+                    <a href="docs/faq.md" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50">FAQ</a>
+                    <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50">Contact</a>
                 </div>
             </div>
         </div>
@@ -97,6 +127,9 @@
             <p class="mt-4 text-xl sm:text-2xl text-gray-300 font-light max-w-3xl mx-auto">
                 The **Conceptional DNA** of a revolutionary, self-powered smart home. It's not just a product, but an ecosystem.
             </p>
+            <a href="#zeppelin-smart" class="mt-8 inline-block px-8 py-3 bg-blue-600 text-white font-semibold rounded-full shadow-lg hover:bg-blue-700 transition duration-300">
+                Explore the Ecosystem
+            </a>
         </div>
     </div>
 
@@ -214,6 +247,8 @@
     const detailsTitle = document.getElementById('details-title');
     const detailsText = document.getElementById('details-text');
     const successModal = document.getElementById('success-modal');
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
 
     function showDetails(componentId) {
         const data = ecosystemData[componentId];
@@ -249,6 +284,10 @@
     function hideModal() {
         successModal.classList.add('hidden');
     }
+
+    mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
 </script>
 
 </body>
